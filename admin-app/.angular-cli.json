@@ -19,9 +19,29 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "assets/css/bootstrap.min.css",
+        "assets/css/font-awesome.min.css",
+        "assets/css/style.css",
+        "assets/css/animate.css",
+        "assets/css/magnific-popup.css",
+        "assets/plugins/FlexSlider/jquery.flexslider.css",
+        "assets/plugins/owl-carousel/owl.carousel.css",
+        "assets/plugins/owl-carousel/owl.theme.css",
+        "assets/css/slick.css",
+        "assets/css/slick-theme.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "assets/js/bootstrap.min.js",
+        "assets/plugins/owl-carousel/owl.carousel.min.js",
+        "assets/plugins/FlexSlider/jquery.flexslider-min.js",
+        "assets/js/jquery.magnific-popup.min.js",
+        "assets/js/magnific-popup.min.js",
+        "assets/js/slick.js",
+        "assets/js/slick-slider.js",
+        "assets/js/site.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
