@@ -4,6 +4,7 @@ let bodyParser = require('body-parser');
 let mysql = require('mysql');
 let db = require('./lib/db');
 
+const url = require('url');
 const path = require('path');
 
 //set port
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 app.get('/api/products', (req, res, next) => {
     // get products from database and return as json
     //next();
+    //console.log(req.path);
     var products = require('./models/products');
     products.getProducts()
         .then(result => {
@@ -27,11 +29,6 @@ app.get('/api/products', (req, res, next) => {
             res.json(result);
 
         });
-    
-            // blPlan.getRootcauseList(planID)
-            //     .then(function(result){
-            //         res.send(result);
-            //     });
 });
 
 app.all("*", (req, res, next) => {
