@@ -9,8 +9,6 @@ import { LoginService } from '../../services/login.service';
 export class HomeComponent implements OnInit {
 
   constructor(_loginService: LoginService) {
-    console.log('1');
-    _loginService.showHideNavbar(false);
   }
 
   ngOnInit() {
