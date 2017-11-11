@@ -1,0 +1,11 @@
+:host body {
+    background: url('/assets/img/main-bg.jpeg') #fff !important;
+    background-size: cover;
+}
+
+#login{
+    background-color: #fff;
+    vertical-align: middle;
+    margin-top: 180px;
+    padding: 40px;
+}

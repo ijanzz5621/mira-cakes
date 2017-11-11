@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -16,6 +16,10 @@ const appRoutes: Routes = [
   {
     path: 'login'
     , component: LoginFormComponent
+  },
+  {
+    path: 'products'
+    , component: ProductComponent
   },
   {
     path: ''
@@ -34,6 +38,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule
     , RouterModule.forRoot(appRoutes)
+    , FormsModule
+    , ReactiveFormsModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

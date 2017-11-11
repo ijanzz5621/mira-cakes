@@ -15,8 +15,6 @@ export class AppComponent {
   constructor(_loginService: LoginService) {
     // this.hideNavbar = false;
     this.subscription = _loginService.getMessage().subscribe(_value => {
-      console.log('receive value!!!');
-      console.log(_value);
       this.hideNavbar = _value.value;
     });
   }
