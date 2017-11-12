@@ -30,6 +30,9 @@ app.get('/api/products', (req, res, next) => {
 
         });
 });
+app.post('/api/product', (req, res, next) => {
+    console.log(req.body);
+});
 
 app.all("*", (req, res, next) => {
     res.sendFile(path.resolve('./public/404.html'));

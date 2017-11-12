@@ -18,7 +18,6 @@ import { HomeComponent } from './components/home/home.component';
 
 // service
 import { LoginService } from './services/login.service';
-import { AddProductComponent } from './components/product/add-product/add-product.component';
 
 const appRoutes: Routes = [
   {
@@ -41,8 +40,7 @@ const appRoutes: Routes = [
     LoginFormComponent,
     ProductComponent,
     HeaderComponent,
-    HomeComponent,
-    AddProductComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule

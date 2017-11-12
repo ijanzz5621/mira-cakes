@@ -1,14 +1,15 @@
-import { AddProductComponent } from './add-product/add-product.component';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { IProduct } from './../../interfaces/IProduct';
 import { ApiService } from './../../services/api.service';
 import { Product } from './../../models/Product';
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppSettings } from '../../services/settings';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
 
 // import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
@@ -27,6 +28,10 @@ export class ProductComponent implements OnInit {
   modalRef: BsModalRef;
 
   productForm: FormGroup;
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(
     private _apiService: ApiService
@@ -78,6 +83,20 @@ export class ProductComponent implements OnInit {
   }
 
   saveProduct() {
+
+    // product = new IProduct();
+    // product.product_id = '123';
+    // product.product_name = 'Testing';
+
+    // save product
+    this._http.post<any>(AppSettings.API_ENDPOINT + 'product', { product_id: 1, product_name: 'testing' }, this.httpOptions)
+      // .error(err => {
+      //   console.log(err);
+      // })
+      .subscribe(result => {
+        console.log(result);
+      });
+
     this.modalRef.hide();
   }
 
