@@ -1,3 +1,64 @@
-<h3>Product List</h3>
+<div class="container sub-container">
 
+    <h3>Product List</h3>
+    <div>
+        <span class="fa fa-plus fa-2x spanAdd" (click)="openModal(templateAddProduct)" style="color:rgb(12, 108, 192); cursor:pointer; "></span>
+    </div>
 
+    <table class="table table-bordered table-responsive table-striped">
+        <thead>
+            <tr style="background:#EA2349; color:#fff;">
+                <td>ID</td>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Price</td>
+                <td>Flavour</td>
+                <td>Description</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{ product.product_id }}</td>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.product_type }}</td>
+                <td>{{ product.product_price }}</td>
+                <td>{{ product.product_flavor }}</td>
+                <td>{{ product.product_description }}</td>
+                <td>
+                    <span class="fa fa-trash" style="font-size:20px;"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<ng-template #templateAddProduct>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Add new product</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        
+        <div class="row">
+
+            <div class="col-md-3">
+                <label for="txtProductID">Product ID</label><br/>
+                <input type="text" id="txtProductID" name="txtProductID" class="form-control">
+            </div>
+
+            <div class="col-md-9">
+                    <label for="txtProductName">Product Name</label><br/>
+                    <input type="text" id="txtProductName" name="txtProductName" class="form-control">
+                </div>
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <input type="button" value="Save" class="btn btn-success" (click)="saveProduct()">
+    </div>
+</ng-template>

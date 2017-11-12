@@ -1,7 +1,14 @@
+import { HttpModule } from '@angular/http';
+import { ApiService } from './services/api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -11,6 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 
 // service
 import { LoginService } from './services/login.service';
+import { AddProductComponent } from './components/product/add-product/add-product.component';
 
 const appRoutes: Routes = [
   {
@@ -33,15 +41,27 @@ const appRoutes: Routes = [
     LoginFormComponent,
     ProductComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule
     , RouterModule.forRoot(appRoutes)
     , FormsModule
     , ReactiveFormsModule
+    , HttpModule
+    , HttpClientModule
+    // , MatDialogModule
+    , BrowserAnimationsModule
+    // , MdDialogModule
+    // , MdButtonModule
+    // , MdCardModule
+    // , MdMenuModule
+    // , MdToolbarModule
+    // , MdIconModule
+    , ModalModule.forRoot()
   ],
-  providers: [LoginService],
+  providers: [LoginService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
