@@ -90,9 +90,6 @@ export class ProductComponent implements OnInit {
 
     // save product
     this._http.post<any>(AppSettings.API_ENDPOINT + 'product', { product_id: 1, product_name: 'testing' }, this.httpOptions)
-      // .error(err => {
-      //   console.log(err);
-      // })
       .subscribe(result => {
         console.log(result);
       });

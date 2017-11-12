@@ -17,17 +17,19 @@ let credentials = require('./credentials');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//enable cors
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // routes
 app.get('/api/products', (req, res, next) => {
-    // get products from database and return as json
-    //next();
-    //console.log(req.path);
     var products = require('./models/products');
     products.getProducts()
         .then(result => {
-
             res.json(result);
-
         });
 });
 app.post('/api/product', (req, res, next) => {
@@ -67,9 +69,8 @@ function startServer() {
     })
 }
 
-if (require.main === module){
+if (require.main === module) {
     startServer();
-} else 
-{
+} else {
     module.exports = startServer;
 }
