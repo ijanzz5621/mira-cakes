@@ -111,9 +111,15 @@ private handleError(err: HttpErrorResponse) {
   }
 
   callModalRemoveProduct(product: IProduct, template: TemplateRef<any>) {
-    console.log('deleting...');
-    console.log(product);
+    // console.log('deleting...');
+    // console.log(product);
     this.productToDelete.product_id = product.product_id;
+    this.productToDelete.product_name = product.product_name;
+    this.productToDelete.product_type = product.product_type;
+    this.productToDelete.product_price = product.product_price;
+    this.productToDelete.product_flavor = product.product_flavor;
+    this.productToDelete.product_description = product.product_description;
+
     this.modalRef = this._modalService.show(template);
   }
 

@@ -1,3 +1,7 @@
 .spanAdd{
     color:rgb(42, 67, 134);
 }
+
+.fa .fa-trash :hover{
+    color:red;
+}

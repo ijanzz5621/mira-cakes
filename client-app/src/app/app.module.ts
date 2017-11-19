@@ -8,11 +8,16 @@ import { HomeComponent } from './components/home/home.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const appRoutes: Routes = [
   {
     path: 'login'
     , component: LoginComponent
+  },
+  {
+    path: 'register'
+    , component: RegisterComponent
   },
   {
     path: 'checkout'
@@ -30,7 +35,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule

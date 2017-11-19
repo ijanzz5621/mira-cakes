@@ -26,7 +26,7 @@
                 <td>{{ product.product_flavor }}</td>
                 <td>{{ product.product_description }}</td>
                 <td>
-                    <span class="fa fa-trash" style="font-size:20px;" (click)="callModalRemoveProduct(product, templateRemoveProduct)"></span>
+                    <span class="fa fa-trash" style="font-size:20px; cursor: pointer;" (click)="callModalRemoveProduct(product, templateRemoveProduct)"></span>
                 </td>
             </tr>
         </tbody>
@@ -114,7 +114,14 @@
 
             <div class="row" *ngIf="productToDelete">
 
-                Are you sure to remove Product ID: {{ productToDelete.product_id }} 
+                <div class="col-md-12">
+                    Are you sure to remove below product: <br/> <br/>
+                    
+                    ID: {{ productToDelete.product_id }} <br/>
+                    Name: {{ productToDelete.product_name }} <br/>
+                    Type: {{ productToDelete.product_type }} <br/>
+                    Price: {{ productToDelete.product_price }} <br/>
+                </div>
 
             </div>
 
