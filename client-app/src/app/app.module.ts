@@ -6,9 +6,13 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { RegisterComponent } from './components/register/register.component';
+
+// services
+import { LoginService } from './services/login.service';
 
 const appRoutes: Routes = [
   {
@@ -41,8 +45,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule
     , RouterModule.forRoot(appRoutes)
+    , FormsModule
+    , ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

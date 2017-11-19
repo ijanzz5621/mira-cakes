@@ -1,3 +1,37 @@
-<p>
-  login works!
-</p>
+<style>
+  body {
+  background: url('/assets/img/main-bg.jpeg') #fff !important;
+  background-size: cover;
+}
+</style>
+
+<div class="login-area">
+
+  <div class="tab-content">
+
+      <div id="login" class="tab-pane fade in active">
+          <div class="login-inner">
+              <div class="title">
+                  <h1>Welcome to Mira Cakes House
+                      <br/>
+                      <span>Login</span>
+                  </h1>
+              </div>
+              <div class="login-form">
+                  <form [formGroup]="myForm">
+                      <div class="form-details">
+                          <label class="user">
+                              <input type="text" name="username" placeholder="Username" id="username" value="Admin" formControlName="username" readonly>
+                          </label>
+                          <label class="pass">
+                              <input type="password" name="passsword" placeholder="Password" id="password" formControlName="password">
+                          </label>
+                      </div>
+                      <button type="button" class="form-btn" (click)="submitForm()">Login</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
