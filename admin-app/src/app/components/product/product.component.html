@@ -26,7 +26,7 @@
                 <td>{{ product.product_flavor }}</td>
                 <td>{{ product.product_description }}</td>
                 <td>
-                    <span class="fa fa-trash" style="font-size:20px;"></span>
+                    <span class="fa fa-trash" style="font-size:20px;" (click)="callModalRemoveProduct(product, templateRemoveProduct)"></span>
                 </td>
             </tr>
         </tbody>
@@ -35,30 +35,94 @@
 </div>
 
 <ng-template #templateAddProduct>
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">Add new product</h4>
+    <div class="modal-header" style="background:#EA2349;">
+        <h4 class="modal-title pull-left" style="color:#fff;">Add new product</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
         
-        <div class="row">
+        <form [formGroup]="productForm">
 
-            <div class="col-md-3">
-                <label for="txtProductID">Product ID</label><br/>
-                <input type="text" id="txtProductID" name="txtProductID" class="form-control">
-            </div>
+            <div class="row">
 
-            <div class="col-md-9">
-                    <label for="txtProductName">Product Name</label><br/>
-                    <input type="text" id="txtProductName" name="txtProductName" class="form-control">
+                <div class="col-md-3">
+                    <label for="txtProductID">Product ID</label><br/>
+                    <input type="text" id="txtProductID" name="txtProductID" class="form-control" formControlName="product_id">
                 </div>
 
-        </div>
+                <div class="col-md-9">
+                    <label for="txtProductName">Product Name</label><br/>
+                    <input type="text" id="txtProductName" name="txtProductName" class="form-control" formControlName="product_name">
+                </div>
+
+            </div>
+
+            <div class="row">
+                
+                <div class="col-md-3">
+                    <label for="ddlProductType">Product Type</label><br/>
+                    <select id="ddlProductType" name="ddlProductType" class="form-control" formControlName="type">
+                        <option value=""></option>
+                        <option value="Cakes">Cakes</option>
+                        <option value="Cookies">Cookies</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="txtProductPrice">Price</label><br/>
+                    <input type="text" id="txtProductPrice" name="txtProductPrice" class="form-control" formControlName="price">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="txtFlavour">Flavour</label><br/>
+                    <input type="text" id="txtFlavour" name="txtFlavour" class="form-control" formControlName="flavour">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label for="txtDescription">Description</label><br/>
+                    <input type="text" id="txtDescription" name="txtDescription" class="form-control" formControlName="desc">
+                </div>
+
+            </div>
+        
+        </form>
 
     </div>
     <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
         <input type="button" value="Save" class="btn btn-success" (click)="saveProduct()">
+    </div>
+</ng-template>
+
+
+<ng-template #templateRemoveProduct>
+    <div class="modal-header" style="background:#EA2349;">
+        <h4 class="modal-title pull-left" style="color:#fff;">Remove product</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        
+        <form [formGroup]="productForm">
+
+            <div class="row" *ngIf="productToDelete">
+
+                Are you sure to remove Product ID: {{ productToDelete.product_id }} 
+
+            </div>
+
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
+        <input type="button" value="Save" class="btn btn-danger" (click)="removeProduct()">
     </div>
 </ng-template>

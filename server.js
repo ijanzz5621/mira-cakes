@@ -33,7 +33,12 @@ app.get('/api/products', (req, res, next) => {
         });
 });
 app.post('/api/product', (req, res, next) => {
-    console.log(req.body);
+    //console.log(req.body);
+    var products = require('./models/products');
+    products.saveProduct(req.body)
+        .then(result => {
+            res.json(result);
+        });
 });
 
 app.all("*", (req, res, next) => {
